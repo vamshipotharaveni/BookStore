@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com" >
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS (RTL version) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" integrity="sha384-dpuaG1suU0eT09tx5plTaGMLBsfDLzUCCUXOY2j/LSvXYuG6Bqs43ALlhIqAJVRb" crossorigin="anonymous">
+    <!-- Google Font: Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    
+    <title>Welcome to Book Store</title>
+    
+    <style>
+      body {
+        font-family: 'Outfit', sans-serif;
+        background: linear-gradient(270deg, #6a1b9a, #ffffff); /* Purple to white gradient at 270deg */
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        margin-bottom:120px
+      }
+
+      /* Navbar styling */
+      .navbar {
+        background: linear-gradient(270deg, #ffffff, #6a1b9a);
+        height: 80px; /* Increased height */
+        padding: 10px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000; /* Ensures the navbar stays on top of other elements */
+      }
+
+      .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #000000; /* Black text */
+      }
+
+      .nav-link {
+        font-weight: 600;
+        color: #000000; /* Black text */
+        padding: 10px 15px;
+        transition: color 0.3s ease;
+      }
+
+      .nav-link:hover {
+        color: red;
+      }
+
+      /* Navbar toggle button styling (background black) */
+      .navbar-toggler {
+       
+        border: none;
+      }
+
+      /* Center the navbar content for mobile */
+      @media (max-width: 768px) {
+        .navbar {
+          height: 100px;
+          padding-bottom: 80px;
+        }
+
+        .navbar .container-fluid {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .navbar-brand {
+          flex-grow: 1;
+          text-align: center;
+        }
+        
+     
+
+
+
+.social-links {
+  margin-top: 10px;
+}
+
+.social-links a {
+  color: #00bcd4;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 24px;
+}
+
+.social-links a:hover {
+  color: #ff5722;
+}
+        
+
+        .navbar-toggler {
+          position: absolute;
+          right: 10px;
+          top: 25px;
+        }
+
+        /* When navbar is open, set background color */
+        .navbar-collapse {
+    background: #ffffff; /* White background for toggle menu */
+  }
+
+        /* Adjust the height of the navbar */
+        .navbar-nav {
+          text-align: center;
+        }
+      }
+
+      /* Container Styling */
+      .container {
+        text-align: center;
+        padding: 40px 15px;
+      }
+
+      .container h1 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: #34495e;
+      }
+
+      .container h6 {
+        font-size: 1.1rem;
+        color: black;
+        line-height: 1.7;
+      }
+
+      /* Image grid layout */
+      .container-fluid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 30px 0;
+      }
+
+      .container-fluid img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        border: 3px solid #ecf0f1;
+        border-radius: 10px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .container-fluid img:hover {
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+        transform: scale(1.05);
+      }
+
+      /
+
+      /* Added margin to the end of the body */
+      .body-content {
+        margin-bottom: 50px; /* Adding space at the bottom */
+      }
+
+      /* Media Queries for responsiveness */
+      @media (max-width: 768px) {
+        .navbar {
+          height: 70px;
+        }
+        .container h1 {
+          font-size: 2rem;
+        }
+        .container h6 {
+          font-size: 1rem;
+        }
+      }
+         footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.footer-content p {
+  margin: 0;
+  font-size: 16px;
+  color: #fff;
+}
+
+.social-links {
+  margin-top: 10px;
+}
+
+.social-links a {
+  color: #00bcd4;
+  text-decoration: none;
+  margin: 0 20px;
+  font-size: 20px;
+}
+
+.social-links a:hover {
+  color: #ff5722;
+}
+
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid m-2">
+        <a class="navbar-brand" href="#">Book Store</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="book_register">New Book Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="my_books">My Books</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="available_books">Available Books</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Welcome Section -->
+    <div class="container body-content">
+      <h1>WELCOME TO OUR BOOK STORE</h1>
+      <h6>We’re so thrilled to have you here! Whether you're a book lover, a curious mind, or just exploring, we have something special waiting for you. Dive into our collection of the best books, explore new worlds, and find your next favorite read.<br><br>
+        Our shelves are filled with stories to inspire, entertain, and educate. Enjoy browsing, and don't hesitate to ask for recommendations. We're here to make your visit unforgettable!<br><br>
+        Happy reading!
+      </h6>
+    </div>
+
+    <!-- Image Gallery -->
+    <div class="container-fluid">
+      <img src="/images/download.jpeg" class="border p-3 rounded shadow-sm hover-shadow" style="transition: box-shadow 0.3s;">
+      <img src="/images/images.jpeg" class="border p-3 rounded shadow-sm hover-shadow" style="transition: box-shadow 0.3s;">
+      <img src="/images/photo-3.jpeg" class="border p-3 rounded shadow-sm hover-shadow" style="transition: box-shadow 0.3s;">
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Book Store. All rights reserved on vamshi .</p>
+      <div class="footer">
+  <div class="footer-content">
+    <p>Contact me:</p>
+    <div class="social-links">
+      <a href="mailto:vamshipotharaveni123@gmail.com" target="_blank" title="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/vamshi-potharaveni-120175271/" target="_blank" title="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="tel:+917075990590" target="_blank" title="Phone">
+        <i class="fas fa-phone"></i>
+      </a>
+      <a href="https://github.com/your-github-username" target="_blank" title="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://instagram.com/your-instagram-username" target="_blank" title="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+  </div>
+</div>
+      
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
